@@ -79,9 +79,7 @@ st.markdown("### 🔍 Rincian Biaya di Titik EOQ:")
 st.write(f"🔵 **Biaya Pemesanan Tahunan:** Rp {biaya_pesan_EOQ:,.0f}")
 st.write(f"🟢 **Biaya Penyimpanan Tahunan:** Rp {biaya_simpan_EOQ:,.0f}")
 st.write(f"🟠 **Total Biaya Persediaan:** Rp {total_biaya_EOQ:,.0f}")
-# Biaya persediaan per liter
-biaya_per_liter = total_biaya_EOQ / D
-st.markdown(f"🔎 **Biaya Persediaan per Liter (Total Biaya / Kebutuhan Tahunan):** Rp {biaya_per_liter:,.2f}")
+
 
 # =====================
 # VISUALISASI GRAFIK
