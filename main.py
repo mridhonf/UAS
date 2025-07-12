@@ -2,14 +2,17 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 
-st.title("Model Persediaan EOQ (Economic Order Quantity)")
+st.set_page_config(page_title="Aplikasi Model Industri Motor", layout="wide")
+
+
+st.title("Model Persediaan EOQ (Economic Order Quantity) dalam produk Gasoline Motor")
 
 st.markdown("### 📘 Masukkan Parameter:")
 
 # Input dari pengguna
-D = st.number_input("Kebutuhan per tahun (unit)", min_value=1, value=12000)
-S = st.number_input("Biaya pemesanan per pesanan (Rp)", min_value=1, value=100000)
-H = st.number_input("Biaya penyimpanan per unit per tahun (Rp)", min_value=1, value=2500)
+D = st.number_input("Kebutuhan Gasoline (Liter/Tahun)", min_value=1, value=12000)
+S = st.number_input("Total Biaya per pesanan (Rp)", min_value=1, value=100000)
+H = st.number_input("Biaya simpan Gasoline (Liter/Tahun) (Rp)", min_value=1, value=2500)
 
 # Perhitungan EOQ
 EOQ = np.sqrt((2 * D * S) / H)
@@ -18,7 +21,7 @@ total_biaya = (jumlah_pemesanan * S) + ((EOQ / 2) * H)
 
 st.markdown("### ✅ Hasil Perhitungan:")
 
-st.write(f"1. **EOQ (Jumlah optimal per pemesanan):** `{EOQ:.2f} unit`")
+st.write(f"1. **EOQ (Jumlah optimal per pemesanan produk Gasoline):** `{EOQ:.2f} unit`")
 st.write(f"2. **Jumlah Pemesanan per Tahun:** `{jumlah_pemesanan:.2f} kali`")
 st.write(f"3. **Total Biaya Persediaan Tahunan:** `Rp {total_biaya:,.0f}`")
 
