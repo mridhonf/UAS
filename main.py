@@ -87,6 +87,7 @@ st.markdown("### 📈 Kurva Komponen Biaya Persediaan")
 
 Q_range = np.linspace(100, D, 200)
 biaya_pesan = (D / Q_range) * S
+biaya_simpan = (Q_range / 2) * H
 biaya_total = biaya_pesan + biaya_simpan
 
 fig, ax = plt.subplots(figsize=(8, 5))
