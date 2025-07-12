@@ -59,8 +59,9 @@ total_biaya_EOQ = biaya_pesan_EOQ + biaya_simpan_EOQ
 # OUTPUT UTAMA
 # =====================
 st.markdown("### ✅ Hasil Perhitungan:")
-st.success(f"1. 🛢️ EOQ (Jumlah optimal per pemesanan produk Gasoline):: {EOQ:.2f} Liter")
+st.success(f"1. 🛢️ EOQ (Jumlah optimal per pemesanan produk Gasoline) : {EOQ:.2f} Liter")
 st.info(f"2. Jumlah Pemesanan dalam Setahun: {jumlah_pemesanan:.2f} kali")
+st.info(f"3. Jumlah Pemesanan dalam Setahun: {jumlah_pemesanan:.2f} kali")
 
 st.markdown("#### ℹ️ Apa itu EOQ?")
 st.markdown("""
@@ -79,6 +80,9 @@ st.markdown("### 🔍 Rincian Biaya di Titik EOQ:")
 st.write(f"🔵 **Biaya Pemesanan Tahunan:** Rp {biaya_pesan_EOQ:,.0f}")
 st.write(f"🟢 **Biaya Penyimpanan Tahunan:** Rp {biaya_simpan_EOQ:,.0f}")
 st.write(f"🟠 **Total Biaya Persediaan:** Rp {total_biaya_EOQ:,.0f}")
+# Biaya persediaan per liter
+biaya_per_liter = total_biaya_EOQ / D
+st.markdown(f"🔎 **Biaya Persediaan per Liter (Total Biaya / Kebutuhan Tahunan):** Rp {biaya_per_liter:,.2f}")
 
 # =====================
 # VISUALISASI GRAFIK
