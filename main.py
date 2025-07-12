@@ -26,6 +26,17 @@ st.markdown("""
 st.title("📦 Model Persediaan EOQ (Economic Order Quantity) Gasoline Motor")
 st.markdown("<hr>", unsafe_allow_html=True)
 
+st.markdown("#### ℹ️ Apa itu EOQ?")
+st.markdown("""
+EOQ (Economic Order Quantity) adalah jumlah unit optimal yang harus dipesan setiap kali agar biaya persediaan total (biaya pesan + simpan) minimal. 
+Perhitungan menggunakan rumus:
+
+\[
+EOQ = (2 * D * S) / H
+\]
+""", unsafe_allow_html=True)
+
+
 st.markdown("### 📘 Masukkan Data Persediaan:")
 
 # =====================
@@ -62,15 +73,6 @@ st.markdown("### ✅ Hasil Perhitungan:")
 st.success(f"1. 🛢️ EOQ (Jumlah optimal per pemesanan produk Gasoline) : {EOQ:.2f} Liter")
 st.info(f"2. Jumlah Pemesanan dalam Setahun: {jumlah_pemesanan:.2f} kali")
 
-st.markdown("#### ℹ️ Apa itu EOQ?")
-st.markdown("""
-EOQ (Economic Order Quantity) adalah jumlah unit optimal yang harus dipesan setiap kali agar biaya persediaan total (biaya pesan + simpan) minimal. 
-Perhitungan menggunakan rumus:
-
-\[
-EOQ = (2 * D * S) / H
-\]
-""", unsafe_allow_html=True)
 
 # =====================
 # DETAIL BIAYA
