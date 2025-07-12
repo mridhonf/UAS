@@ -54,7 +54,7 @@ st.markdown("#### ℹ️ Keterangan:")
 st.markdown("""
 - **D** = Permintaan/Kebutuhan Gasoline dalam 1 tahun
 - **S** = Biaya setiap kali melakukan pemesanan
-- **H** = Biaya menyimpan 1 Liter barang selama 1 tahun
+- **H** = Biaya menyimpan 1 Liter Gasoline selama 1 tahun
 """)
 
 # =====================
