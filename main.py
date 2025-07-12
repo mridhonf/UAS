@@ -92,8 +92,21 @@ biaya_total = biaya_pesan + biaya_simpan
 
 fig, ax = plt.subplots(figsize=(8, 5))
 ax.plot(Q_range, biaya_pesan, label="Biaya Pemesanan", color='blue', linestyle='--')
+ax.plot(Q_range, biaya_simpan, label="Biaya Penyimpanan", color='green', linestyle='-.')
 ax.plot(Q_range, biaya_total, label="Total Biaya", color='orange', linewidth=2)
+
+# Titik EOQ pada kurva Total Biaya
+ax.plot(EOQ, total_biaya_EOQ, 'ro', label=f'Total Biaya di EOQ\nRp {total_biaya_EOQ:,.0f}')
 ax.axvline(EOQ, color='red', linestyle=':', label=f'EOQ ≈ {EOQ:.0f}')
+ax.annotate(f'Rp {total_biaya_EOQ:,.0f}',
+            (EOQ, total_biaya_EOQ),
+            textcoords="offset points",
+            xytext=(0,10),
+            ha='center',
+            color='red',
+            fontsize=9,
+            fontweight='bold')
+
 ax.set_xlabel("Jumlah Pemesanan per Order (Q)")
 ax.set_ylabel("Biaya (Rp)")
 ax.set_title("📉 Grafik Biaya Pemesanan, Penyimpanan & Total")
