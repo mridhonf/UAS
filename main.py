@@ -61,7 +61,6 @@ total_biaya_EOQ = biaya_pesan_EOQ + biaya_simpan_EOQ
 st.markdown("### ✅ Hasil Perhitungan:")
 st.success(f"1. 🛢️ EOQ (Jumlah optimal per pemesanan produk Gasoline) : {EOQ:.2f} Liter")
 st.info(f"2. Jumlah Pemesanan dalam Setahun: {jumlah_pemesanan:.2f} kali")
-st.info(f"3. Jumlah Pemesanan dalam Setahun: {jumlah_pemesanan:.2f} kali")
 
 st.markdown("#### ℹ️ Apa itu EOQ?")
 st.markdown("""
