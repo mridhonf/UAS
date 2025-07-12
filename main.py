@@ -7,7 +7,7 @@ matplotlib.use('Agg')
 # =====================
 # Tampilan awal
 # =====================
-st.set_page_config(page_title="Model EOQ", layout="centered")
+st.set_page_config(page_title="⛽ Model EOQ Produk Gasoline Motor", layout="centered")
 st.markdown("""
     <style>
     .main {
@@ -23,20 +23,20 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title("📦 Model Persediaan EOQ (Economic Order Quantity)")
+st.title("📦 Model Persediaan EOQ (Economic Order Quantity) Gasoline Motor")
 st.markdown("<hr>", unsafe_allow_html=True)
 
-st.markdown("### 📘 Masukkan Parameter Persediaan:")
+st.markdown("### 📘 Masukkan Data Persediaan:")
 
 # =====================
 # Input
 # =====================
 col1, col2 = st.columns(2)
 with col1:
-    D = st.number_input("🔢 Kebutuhan per tahun (unit)", min_value=1, value=12000)
-    S = st.number_input("📥 Biaya pemesanan per pesanan (Rp)", min_value=1, value=100000)
+    D = st.number_input("⛽ Kebutuhan Gasoline (Liter/Tahun)", min_value=1, value=12000)
+    S = st.number_input("📥 Total Biaya per pesanan (Rp)", min_value=1, value=100000)
 with col2:
-    H = st.number_input("📦 Biaya penyimpanan per unit per tahun (Rp)", min_value=1, value=2500)
+    H = st.number_input("🛢️ Biaya simpan Gasoline (Liter/Tahun) (Rp)", min_value=1, value=2500)
 
 # Keterangan input
 st.markdown("#### ℹ️ Keterangan:")
@@ -59,9 +59,8 @@ total_biaya_EOQ = biaya_pesan_EOQ + biaya_simpan_EOQ
 # OUTPUT UTAMA
 # =====================
 st.markdown("### ✅ Hasil Perhitungan:")
-st.success(f"1. EOQ (Jumlah optimal per pemesanan): {EOQ:.2f} unit")
-st.info(f"2. Jumlah Pemesanan per Tahun: {jumlah_pemesanan:.2f} kali")
-st.warning(f"3. Total Biaya Persediaan Tahunan: Rp {total_biaya_EOQ:,.0f}")
+st.success(f"1. 🛢️ EOQ (Jumlah optimal per pemesanan produk Gasoline):: {EOQ:.2f} Liter")
+st.info(f"2. Jumlah Pemesanan dalam Setahun: {jumlah_pemesanan:.2f} kali")
 
 st.markdown("#### ℹ️ Apa itu EOQ?")
 st.markdown("""
@@ -103,4 +102,4 @@ ax.legend()
 ax.grid(True)
 st.pyplot(fig)
 
-st.markdown("<hr><center>📊 Dibuat dengan Streamlit untuk Analisis EOQ</center>", unsafe_allow_html=True)
+st.markdown("<hr><center>📊 Dibuat dengan Streamlit untuk Analisis EOQ Designed By Ridho</center>", unsafe_allow_html=True)
