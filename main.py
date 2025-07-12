@@ -21,7 +21,7 @@ total_biaya = (jumlah_pemesanan * S) + ((EOQ / 2) * H)
 
 st.markdown("### ✅ Hasil Perhitungan:")
 
-st.write(f"1. **EOQ (Jumlah optimal per pemesanan produk Gasoline):** `{EOQ:.2f} unit`")
+st.write(f"1. **EOQ (Jumlah optimal per pemesanan produk Gasoline):** `{EOQ:.2f} Liter`")
 st.write(f"2. **Jumlah Pemesanan per Tahun:** `{jumlah_pemesanan:.2f} kali`")
 st.write(f"3. **Total Biaya Persediaan Tahunan:** `Rp {total_biaya:,.0f}`")
 
