@@ -68,7 +68,7 @@ EOQ (Economic Order Quantity) adalah jumlah unit optimal yang harus dipesan seti
 Perhitungan menggunakan rumus:
 
 \[
-EOQ = \\sqrt{\\frac{2DS}{H}}
+EOQ = (2 * D * S) / H
 \]
 """, unsafe_allow_html=True)
 
