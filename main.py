@@ -38,6 +38,14 @@ with col1:
 with col2:
     H = st.number_input("📦 Biaya penyimpanan per unit per tahun (Rp)", min_value=1, value=2500)
 
+# Keterangan input
+st.markdown("#### ℹ️ Keterangan:")
+st.markdown("""
+- **D** = Kebutuhan tahunan (permintaan barang dalam 1 tahun)
+- **S** = Biaya setiap kali melakukan pemesanan
+- **H** = Biaya menyimpan 1 unit barang selama 1 tahun
+""")
+
 # =====================
 # Perhitungan EOQ
 # =====================
@@ -54,6 +62,16 @@ st.markdown("### ✅ Hasil Perhitungan:")
 st.success(f"1. EOQ (Jumlah optimal per pemesanan): {EOQ:.2f} unit")
 st.info(f"2. Jumlah Pemesanan per Tahun: {jumlah_pemesanan:.2f} kali")
 st.warning(f"3. Total Biaya Persediaan Tahunan: Rp {total_biaya_EOQ:,.0f}")
+
+st.markdown("#### ℹ️ Apa itu EOQ?")
+st.markdown("""
+EOQ (Economic Order Quantity) adalah jumlah unit optimal yang harus dipesan setiap kali agar biaya persediaan total (biaya pesan + simpan) minimal. 
+Perhitungan menggunakan rumus:
+
+\[
+EOQ = \\sqrt{\\frac{2DS}{H}}
+\]
+""", unsafe_allow_html=True)
 
 # =====================
 # DETAIL BIAYA
