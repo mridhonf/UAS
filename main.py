@@ -52,9 +52,9 @@ with col2:
 # Keterangan input
 st.markdown("#### ℹ️ Keterangan:")
 st.markdown("""
-- **D** = Kebutuhan tahunan (permintaan barang dalam 1 tahun)
+- **D** = Permintaan/Kebutuhan Gasoline dalam 1 tahun
 - **S** = Biaya setiap kali melakukan pemesanan
-- **H** = Biaya menyimpan 1 unit barang selama 1 tahun
+- **H** = Biaya menyimpan 1 Liter barang selama 1 tahun
 """)
 
 # =====================
