@@ -86,22 +86,51 @@ st.write(f"🟠 **Total Biaya Persediaan:** Rp {total_biaya_EOQ:,.0f}")
 # =====================
 # VISUALISASI GRAFIK
 # =====================
-st.markdown("### 📈 Kurva Komponen Biaya Persediaan")
+st.markdown("### 📈 Grafik Komponen Biaya Persediaan (EOQ)")
 
-Q_range = np.linspace(100, D, 200)
+# Hitung range jumlah pemesanan Q
+Q_range = np.linspace(100, D, 300)
 biaya_pesan = (D / Q_range) * S
 biaya_simpan = (Q_range / 2) * H
 biaya_total = biaya_pesan + biaya_simpan
 
-fig, ax = plt.subplots(figsize=(8, 5))
+# Buat grafik
+fig, ax = plt.subplots(figsize=(10, 6))
 ax.plot(Q_range, biaya_pesan, label="Biaya Pemesanan", color='blue', linestyle='--')
-ax.plot(Q_range, biaya_total, label="Total Biaya", color='orange', linewidth=2)
-ax.axvline(EOQ, color='red', linestyle=':', label=f'EOQ ≈ {EOQ:.0f}')
-ax.set_xlabel("Jumlah Pemesanan per Order (Q)")
-ax.set_ylabel("Biaya (Rp)")
-ax.set_title("📉 Grafik Biaya Pemesanan, Penyimpanan & Total")
+ax.plot(Q_range, biaya_simpan, label="Biaya Penyimpanan", color='green', linestyle='-.')
+ax.plot(Q_range, biaya_total, label="Total Biaya Persediaan", color='orange', linewidth=2)
+
+# Garis vertikal EOQ
+ax.axvline(EOQ, color='red', linestyle=':', label=f'EOQ ≈ {EOQ:.0f} Liter')
+
+# Titik-titik biaya pada EOQ
+ax.plot(EOQ, biaya_pesan_EOQ, 'bo')  # titik biru biaya pesan
+ax.plot(EOQ, biaya_simpan_EOQ, 'go')  # titik hijau biaya simpan
+ax.plot(EOQ, total_biaya_EOQ, 'ro')  # titik merah total biaya
+
+# Keterangan titik
+ax.annotate(f'Biaya Pesan\nRp {biaya_pesan_EOQ:,.0f}',
+            (EOQ, biaya_pesan_EOQ),
+            textcoords="offset points", xytext=(-70,10), ha='center', color='blue')
+
+ax.annotate(f'Biaya Simpan\nRp {biaya_simpan_EOQ:,.0f}',
+            (EOQ, biaya_simpan_EOQ),
+            textcoords="offset points", xytext=(70,10), ha='center', color='green')
+
+ax.annotate(f'Total Biaya\nRp {total_biaya_EOQ:,.0f}',
+            (EOQ, total_biaya_EOQ),
+            textcoords="offset points", xytext=(0,-40), ha='center', color='darkorange')
+
+# Label grafik
+ax.set_xlabel("Jumlah Pemesanan Sekali Order (Q)", fontsize=11)
+ax.set_ylabel("Biaya (Rp)", fontsize=11)
+ax.set_title("📊 Grafik EOQ: Biaya Pemesanan, Penyimpanan, dan Total Biaya", fontsize=13)
 ax.legend()
 ax.grid(True)
+fig.tight_layout()
+
+# Tampilkan grafik di Streamlit
 st.pyplot(fig)
+
 
 st.markdown("<hr><center>📊 Dibuat dengan Streamlit untuk Analisis EOQ Designed By Ridho</center>", unsafe_allow_html=True)
